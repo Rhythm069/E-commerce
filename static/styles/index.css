@@ -168,6 +168,243 @@ nav a:hover{
 }
 
 
+.footer{
+
+    background:#0d0907;
+    color:#ddd;
+
+    margin-top:80px;
+
+    border-top:1px solid rgba(212,175,55,.3);
+
+}
+
+.footer-top{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1.3fr;
+
+    gap:50px;
+
+}
+
+.footer-box h2{
+
+    color:#d4af37;
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+.footer-box h3{
+
+    color:#d4af37;
+
+    margin-bottom:20px;
+
+    position:relative;
+
+}
+
+.footer-box h3::after{
+
+    content:"";
+
+    width:50px;
+
+    height:2px;
+
+    background:#d4af37;
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+}
+
+.tagline{
+
+    color:#d4af37;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+    font-size:13px;
+
+}
+
+.footer-box p{
+
+    line-height:1.9;
+
+    margin-bottom:12px;
+
+}
+
+.footer-box ul{
+
+    list-style:none;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:15px;
+
+}
+
+.footer-box ul li a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:#d4af37;
+
+    padding-left:8px;
+
+}
+
+.social{
+
+    margin-top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.social a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.social a:hover{
+
+    color:#d4af37;
+
+}
+
+.footer-services{
+
+    border-top:1px solid rgba(212,175,55,.2);
+
+    border-bottom:1px solid rgba(212,175,55,.2);
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.service{
+
+    text-align:center;
+
+    padding:30px 20px;
+
+}
+
+.service:not(:last-child){
+
+    border-right:1px solid rgba(212,175,55,.2);
+
+}
+
+.service h4{
+
+    color:#d4af37;
+
+    margin-bottom:10px;
+
+}
+
+.service p{
+
+    color:#bbb;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#999;
+
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.footer-top{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.footer-services{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.footer-top{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-services{
+
+grid-template-columns:1fr;
+
+}
+
+.service{
+
+border-right:none !important;
+
+border-bottom:1px solid rgba(212,175,55,.2);
+
+}
+
+}
+
 
 footer{
     background:#111;

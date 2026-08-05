@@ -23,8 +23,125 @@
     <main>
         {%block content%} {%endblock%}
     </main>
-    <footer>
-         <p>© 2026 Rhythm Jewellery Store | All Rights Reserved.</p>
-    </footer>
+    <footer class="footer">
+
+    <div class="footer-top">
+
+        <div class="footer-box brand">
+
+            <h2>💎 Rhythm Jewellery</h2>
+
+            <p class="tagline">
+                Timeless Elegance Crafted For Every Occasion
+            </p>
+
+            <p>
+                Since 2020, Rhythm Jewellery has been creating
+                elegant handcrafted jewellery with premium
+                craftsmanship and modern design. Every piece
+                tells a story of beauty and luxury.
+            </p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Shop</h3>
+
+            <ul>
+
+                <li><a href={% url 'ecommerce:collection' %}> Rings</a></li>
+                <li><a href={% url 'ecommerce:collection' %}> Necklaces</a></li>
+                <li><a href={% url 'ecommerce:collection' %}> Earrings</a></li>
+                <li><a href={% url 'ecommerce:collection' %}> Bracelets</a></li>
+                <li><a href={% url 'ecommerce:collection' %}> Wedding Sets</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Company</h3>
+
+            <ul>
+
+                <li><a href="{% url 'ecommerce:about' %}">About Us</a></li>
+                <li><a href="{% url 'ecommerce:collection' %}">Collections</a></li>
+                <li><a href="{% url 'ecommerce:contact' %}">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact</h3>
+
+            <p>📍 Boudha, Dharatole, Nepal</p>
+
+            <p>📞 +977 9812345678</p>
+
+            <p>✉ rhythmjewellery@gmail.com</p>
+
+            <div class="social">
+
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-services">
+
+        <div class="service">
+
+            <h4>Certified Jewellery</h4>
+
+            <p>Authentic Gold & Diamonds</p>
+
+        </div>
+
+        <div class="service">
+
+            <h4>Free Shipping</h4>
+
+            <p>On Orders Above Rs.10,000</p>
+
+        </div>
+
+        <div class="service">
+
+            <h4> Easy Returns</h4>
+
+            <p>7 Days Return Policy</p>
+
+        </div>
+
+        <div class="service">
+
+            <h4>Lifetime Support</h4>
+
+            <p>Cleaning & Maintenance</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Rhythm Jewellery Store | Designed with ❤️ in Nepal
+        </p>
+
+    </div>
+
+</footer>
 </body>
 </html>
