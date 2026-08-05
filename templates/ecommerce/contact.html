@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Rhythm Jewellery</title>
+
+    <link rel="stylesheet" href="{% static 'styles/contact.css'%}">
+</head>
+
+<body>
+
+<section class="contact-container">
+
+    
+
+    <div class="left">
+
+        <h1>Get In Touch</h1>
+
+        <div class="underline"></div>
+
+        <div class="info-card">
+
+          
+
+            <div>
+                <h4>VISIT OUR SHOP</h4>
+
+                <p>Boudha dharatole-10</p>
+
+                <p>Boudha, Nepal</p>
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+            
+
+            <div>
+                <h4>CALL US</h4>
+
+                <p>+977 9762300156</p>
+
+                
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+            <div class="icon">
+                
+            </div>
+
+            <div>
+
+                <h4>EMAIL US</h4>
+
+                <p>rhythmjewl@gmail.com</p>
+
+                <p>We reply within 24 hours</p>
+
+            </div>
+
+        </div>
+
+        <div class="info-card">
+
+
+            <div>
+
+                <h4>RESPONSE TIME</h4>
+
+                <p>Within 24 Hours</p> <br>
+
+                <h4>OPENING DAYS</h4>
+
+                <p>Sunday - Friday</p>
+
+            </div>
+
+        </div>
+
+        <div class="map">
+
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.9544206408788!2d85.35954988045495!3d27.72291490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b001168cde7%3A0xcd07db4fa0fcf553!2sDhara%20tole%20boudha!5e0!3m2!1sen!2snp!4v1785912686351!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+
+        <div class="visit">
+
+            <h2>Visit Our Atelier</h2>
+
+            <p>Experience our beautiful collection in person.</p>
+
+            <a href="#">Book Appointment →</a>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="right">
+
+        <h1>Send Us A Message</h1>
+
+        <div class="underline"></div>
+
+        <form>
+
+            <div class="row">
+
+                <input type="text" placeholder="Your Name">
+
+                <input type="email" placeholder="Email Address">
+
+            </div>
+
+            <input type="text" placeholder="Subject">
+
+            <textarea rows="8" placeholder="Your Message"></textarea>
+
+            
+            <button>
+                Send Message
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>
+{% endblock %}

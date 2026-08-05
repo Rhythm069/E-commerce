@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Jewellery Collection</title>
+
+    <link rel="stylesheet" href="{% static 'styles/collection.css' %}">
+</head>
+<body>
+
+<header>
+    
+</header>
+
+<section class="hero">
+    <h2>Our Premium Collection</h2>
+    <p>Discover elegant jewellery crafted with perfection.</p>
+</section>
+
+<section class="products">
+
+    {% for product in products %}
+
+    <div class="card">
+
+        <div class="image">
+            <img src="{% static product.image %}" alt="{{ product.name }}">
+        </div>
+
+        <h3>{{ product.name }}</h3>
+
+        <p class="price">Price: {{ product.price }}</p>
+
+        {% if product.stock %}
+            <p class="stock available">✅ In Stock</p>
+        {% else %}
+            <p class="stock unavailable">❌ Out of Stock</p>
+        {% endif %}
+
+        <button>View Details</button>
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+
+</body>
+</html>
+{%endblock%}

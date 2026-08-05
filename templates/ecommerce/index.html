@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Jewellery Store</title>
+
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+</head>
+<body>
+
+    
+    <header>
+       
+       
+
+</header>
+
+    
+    <section class="hero">
+        
+
+        <h2>Elegance That Lasts Forever</h2>
+
+        <p>
+            Discover beautiful gold, diamond, silver, and premium jewellery
+            crafted with love and perfection.
+        </p>
+
+        <a href="/collection/">
+            <button>Shop Now</button>
+        </a>
+
+    </section>
+
+   
+    <section class="welcome">
+
+        <h2>Welcome {{ customer_name }} </h2>
+
+        <p>
+            Thank you for visiting Rhythm Jewellery Store.
+        </p>
+
+        <p>
+            Products purchased: <strong>{{ product_count }}</strong>
+        </p>
+
+    </section>
+
+    
+    <section class="categories">
+
+        <h2>Featured Categories</h2>
+
+        <div class="category-box">
+
+            <div class="category">
+                
+                <h3>Rings</h3>
+                <p>Beautiful engagement and wedding rings.</p>
+            </div>
+
+            <div class="category">
+                
+                <h3>Necklaces</h3>
+                <p>Luxury necklaces for every occasion.</p>
+            </div>
+
+            <div class="category">
+                
+                <h3>Bracelets</h3>
+                <p>Elegant bracelets with premium designs.</p>
+            </div>
+
+            <div class="category">
+                
+                <h3>Wedding Collection</h3>
+                <p>Special jewellery for your special day.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+  
+    <section class="why-us">
+
+        <h2>Why Choose Rhythm Jewellery?</h2>
+
+        <ul>
+            <li> 100% Certified Jewellery</li>
+            <li> Fast Delivery</li>
+            <li> Best Prices</li>
+            <li> Secure Payments</li>
+            <li> Trusted by Thousands of Customers</li>
+        </ul>
+
+    </section>
+
+   
+    
+{%endblock%}
+</body>
+</html>
