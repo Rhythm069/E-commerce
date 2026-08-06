@@ -28,14 +28,14 @@
     <div class="card">
 
         <div class="image">
-            <img src="{% static product.image %}" alt="{{ product.name }}">
+            <img src="{{products.image.url}}" alt="{{ products.name }}">
         </div>
 
         <h3>{{ product.name }}</h3>
 
         <p class="price">Price: {{ product.price }}</p>
 
-        {% if product.stock %}
+        {% if products.stock %}
             <p class="stock available">✅ In Stock</p>
         {% else %}
             <p class="stock unavailable">❌ Out of Stock</p>

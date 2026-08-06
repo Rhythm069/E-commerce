@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-ffh9*j1$kci-rb8e3d!$k0&=ez=t$l)2_xowz+)=!rl*5xja**
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# media url for admin panel
+MEDIA_URL ='/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Application definition
 
