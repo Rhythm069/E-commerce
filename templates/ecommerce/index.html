@@ -14,96 +14,129 @@
 <body>
 
     
-    <header>
-       
-       
-
-</header>
-
-    
-    <section class="hero">
-        
-
-        <h2>Elegance That Lasts Forever</h2>
-
-        <p>
-            Discover beautiful gold, diamond, silver, and premium jewellery
-            crafted with love and perfection.
-        </p>
-
-        <a href="/collection/">
-            <button>Shop Now</button>
-        </a>
-
-    </section>
-
-   
-    <section class="welcome">
-
-        <h2>Welcome {{ customer_name }} </h2>
-
-        <p>
-            Thank you for visiting Rhythm Jewellery Store.
-        </p>
-
-        <p>
-            Products purchased: <strong>{{ product_count }}</strong>
-        </p>
-
-    </section>
-
-    
-    <section class="categories">
-
-        <h2>Featured Categories</h2>
-
-        <div class="category-box">
-
-            <div class="category">
-                
-                <h3>Rings</h3>
-                <p>Beautiful engagement and wedding rings.</p>
+    <main>
+ 
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Handcrafted in Kathmandu since 1998</p>
+      <h1>Gold that carries a rhythm of its own.</h1>
+      <p>From Naugedi to Sirbandi, every piece at Rhythm ko Dukan is hand-set by third-generation goldsmiths, hallmark certified, and made to be handed down.</p>
+      <div class="hero__ctas">
+        <a href="collection.html" class="btn">Explore the Collection</a>
+        <a href="about.html" class="btn btn--ghost">Our Story</a>
+      </div>
+    </div>
+  </section>
+ 
+  <div class="wrap">
+    <div class="stats" role="list">
+      <div><strong>26+</strong><span>Years in Ason Bazaar</span></div>
+      <div><strong>22K/24K</strong><span>Hallmark Gold</span></div>
+      <div><strong>4,800+</strong><span>Brides Adorned</span></div>
+      <div><strong>100%</strong><span>Handcrafted Locally</span></div>
+    </div>
+  </div>
+ 
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Signature Categories</span>
+        <h2>Shop the house favourites</h2>
+      </div>
+      <div class="grid">
+ 
+        <article class="card">
+          <div class="frame card__photo">
+          
+            <div class="frame__inner">
+              <img src="https://images.unsplash.com/photo-1758995115682-1452a1a9e35b?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Gold necklace and matching earrings displayed on a stand" loading="lazy">
             </div>
-
-            <div class="category">
-                
-                <h3>Necklaces</h3>
-                <p>Luxury necklaces for every occasion.</p>
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Bridal · Necklace Sets</span>
+            <h3 class="card__title">Sun Naugedi Set</h3>
+            <p class="card__desc">Nine-strand traditional gold necklace with matching tilhari pendant, finished by hand.</p>
+            <div class="card__row">
+              <span class="card__price">NPR 1,85,000<small>Tola-based pricing</small></span>
+              <a class="card__buy" href="collection.html">View →</a>
             </div>
-
-            <div class="category">
-                
-                <h3>Bracelets</h3>
-                <p>Elegant bracelets with premium designs.</p>
+          </div>
+        </article>
+ 
+        <article class="card">
+          <div class="frame card__photo">
+            <div class="frame__inner">
+              <img src="https://images.unsplash.com/photo-1654521883301-070279dd0ae1?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="A pair of polished gold rings" loading="lazy">
             </div>
-
-            <div class="category">
-                
-                <h3>Wedding Collection</h3>
-                <p>Special jewellery for your special day.</p>
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Rings</span>
+            <h3 class="card__title">Kanchan Band Ring</h3>
+            <p class="card__desc">Smooth 22K gold band, engagement-ready, sized to order at our Ason workshop.</p>
+            <div class="card__row">
+              <span class="card__price">NPR 32,000<small>Per piece</small></span>
+              <a class="card__buy" href="collection.html">View →</a>
             </div>
-
+          </div>
+        </article>
+ 
+        <article class="card">
+          <div class="frame card__photo">
+            
+            <div class="frame__inner">
+              <img src="https://images.unsplash.com/photo-1777286492764-456e3530e34c?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Gold jewellery boutique display of necklaces and bracelets" loading="lazy">
+            </div>
+          </div>
+          <div class="card__body">
+            <span class="card__cat">Bangles</span>
+            <h3 class="card__title">Chura Bangle Pair</h3>
+            <p class="card__desc">Twin hand-hammered bangles with a rope-twist edge — a Dashain best-seller.</p>
+            <div class="card__row">
+              <span class="card__price">NPR 1,45,000<small>Per pair</small></span>
+              <a class="card__buy" href={% url 'ecommerce:collection' %}>View →</a>
+            </div>
+          </div>
+        </article>
+ 
+      </div>
+      <div style="text-align:center; margin-top:44px;">
+        <a href={% url 'ecommerce:collection' %} class="btn btn--dark">See Full Collection ✦</a>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="section section--emerald">
+    <div class="wrap split">
+      <div class="frame">
+        <div class="frame__inner">
+          <img src="https://images.unsplash.com/photo-1758995115867-4ef47c98824e?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="Rows of gold necklaces glowing in a jewellery store display" loading="lazy">
         </div>
-
-    </section>
-
-  
-    <section class="why-us">
-
-        <h2>Why Choose Rhythm Jewellery?</h2>
-
-        <ul>
-            <li> 100% Certified Jewellery</li>
-            <li> Fast Delivery</li>
-            <li> Best Prices</li>
-            <li> Secure Payments</li>
-            <li> Trusted by Thousands of Customers</li>
+      </div>
+      <div class="split__text">
+        <span class="eyebrow">Why Rhythm ko Dukan</span>
+        <h2>Every piece is hallmarked, weighed in front of you, and billed in transparent NPR.</h2>
+        <p>We melt, cast, and finish every design in our own Ason Bazaar karkhana — no outsourced imports, no hidden making charges. Bring an old design, and our goldsmiths will recreate it by hand.</p>
+        <ul style="margin-top:18px; display:grid; gap:10px;">
+          <li>✦ Government hallmark on every item</li>
+          <li>✦ Old gold exchange accepted</li>
+          <li>✦ eSewa, Khalti &amp; bank transfer supported</li>
+          <li>✦ Custom orders for weddings &amp; Bratabandha</li>
         </ul>
-
-    </section>
-
-   
-    
-{%endblock%}
+        <a href="about.html" class="btn" style="margin-top:24px;">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="section">
+    <div class="wrap">
+      <div class="divider">TESTIMONIAL</div>
+      <p class="quote">Rhythm ko Dukan set my mother's old Naugedi into a modern Tilhari for my bratabandha — the finishing looked exactly like the catalogue photo. Worth every paisa.
+        <cite>— Suniva R., Baneshwor</cite>
+      </p>
+    </div>
+  </section>
+ 
+</main>
 </body>
 </html>
+{% endblock %}

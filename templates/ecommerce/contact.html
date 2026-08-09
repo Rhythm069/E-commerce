@@ -9,135 +9,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Rhythm Jewellery</title>
 
-    <link rel="stylesheet" href="{% static 'styles/contact.css'%}">
+    <link rel="stylesheet" href="{% static 'styles/index.css'%}">
 </head>
 
 <body>
 
-<section class="contact-container">
+<div class="page-banner">
+  <div class="wrap">
+    <span class="eyebrow">Get In Touch</span>
+    <h1>Contact Us</h1>
+    <p class="breadcrumb">HOME / CONTACT</p>
+  </div>
+</div>
 
-    
+<main>
+  <section class="section">
+    <div class="wrap split" style="align-items:flex-start;">
 
-    <div class="left">
-
-        <h1>Get In Touch</h1>
-
-        <div class="underline"></div>
-
-        <div class="info-card">
-
-          
-
-            <div>
-                <h4>VISIT OUR SHOP</h4>
-
-                <p>Boudha dharatole-10</p>
-
-                <p>Boudha, Nepal</p>
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-            
-
-            <div>
-                <h4>CALL US</h4>
-
-                <p>+977 9762300156</p>
-
-                
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-            <div class="icon">
-                
-            </div>
-
-            <div>
-
-                <h4>EMAIL US</h4>
-
-                <p>rhythmjewl@gmail.com</p>
-
-                <p>We reply within 24 hours</p>
-
-            </div>
-
-        </div>
-
-        <div class="info-card">
-
-
-            <div>
-
-                <h4>RESPONSE TIME</h4>
-
-                <p>Within 24 Hours</p> <br>
-
-                <h4>OPENING DAYS</h4>
-
-                <p>Sunday - Friday</p>
-
-            </div>
-
-        </div>
-
-        <div class="map">
-
-            
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d882.9544206408788!2d85.35954988045495!3d27.72291490000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1b001168cde7%3A0xcd07db4fa0fcf553!2sDhara%20tole%20boudha!5e0!3m2!1sen!2snp!4v1785912686351!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-
-        <div class="visit">
-
-            <h2>Visit Our Atelier</h2>
-
-            <p>Experience our beautiful collection in person.</p>
-
-            <a href="#">Book Appointment →</a>
-
-        </div>
-
-    </div>
-
-    
-
-    <div class="right">
-
-        <h1>Send Us A Message</h1>
-
-        <div class="underline"></div>
-
-        <form>
-
-            <div class="row">
-
-                <input type="text" placeholder="Your Name">
-
-                <input type="email" placeholder="Email Address">
-
-            </div>
-
-            <input type="text" placeholder="Subject">
-
-            <textarea rows="8" placeholder="Your Message"></textarea>
-
-            
-            <button>
-                Send Message
-
-            </button>
-
+      <div class="form-panel">
+        <h2 style="margin-bottom:6px;">Send an Enquiry</h2>
+        <p style="margin-top:0; color:#5a4a2e; font-size:.95rem;">Custom design, bridal booking, or a question about a piece — write in and our karkhana will reply within a business day.</p>
+        <form action="#" method="post" onsubmit="return handleContactSubmit(event)">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+977 98-XXXX-XXXX">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest">
+              <option>Bridal Set (Sirbandi / Naugedi)</option>
+              <option>Necklaces &amp; Chains</option>
+              <option>Rings</option>
+              <option>Bangles</option>
+              <option>Earrings</option>
+              <option>Custom Design / Old Gold Exchange</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%;">Send Enquiry ✦</button>
+          <p id="form-status" role="status" style="margin-top:14px; font-family:'Space Mono',monospace; font-size:.78rem; color:var(--maroon);"></p>
         </form>
+      </div>
+
+      <div>
+        <h2>Visit or Reach Us</h2>
+        <ul class="contact-info">
+          <li>
+            <span class="ico">⌂</span>
+            <span><strong>Showroom</strong><br>Rhythm ko Dukan, Ason Bazaar<br>Kathmandu 44600, Nepal</span>
+          </li>
+          <li>
+            <span class="ico">☎</span>
+            <span><strong>Phone</strong><br>+977 9762300156<br>0145682 (landline)</span>
+          </li>
+          <li>
+            <span class="ico">✉</span>
+            <span><strong>Email</strong><br>rhythmjew@gamil.com</span>
+          </li>
+          <li>
+            <span class="ico">🕐</span>
+            <span><strong>Hours</strong><br>Sunday – Friday, 10:30 AM – 7:30 PM<br>Closed Saturdays &amp; major festivals</span>
+          </li>
+          <li>
+            <span class="ico">₨</span>
+            <span><strong>Payments</strong><br>eSewa, Khalti, bank transfer, or cash on visit</span>
+          </li>
+        </ul>
+
+        <div class="map-box" style="margin-top:24px; height:280px;">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=85.3050%2C27.7020%2C85.3160%2C27.7100&layer=mapnik&marker=27.7060%2C85.3105"
+            title="Map showing Ason Bazaar, Kathmandu"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
 
     </div>
+  </section>
+</main>
 
-</section>
 
 </body>
 </html>
