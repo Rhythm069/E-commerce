@@ -31,30 +31,27 @@
         <p style="margin-top:0; color:#5a4a2e; font-size:.95rem;">Custom design, bridal booking, or a question about a piece — write in and our karkhana will reply within a business day.</p>
         <form action="#" method="post" onsubmit="return handleContactSubmit(event)">
           <div class="field">
-            <label for="name">Full Name</label>
+            <label for="{{ form.name.id_for_label }}">Full Name</label>
+            {{ form.name }}
             <input type="text" id="name" name="name" required placeholder="Your name">
           </div>
           <div class="field">
-            <label for="phone">Phone</label>
+           <label for="{{ form.phone.id_for_label }}">Phone</label>
+            {{ form.phone }}
             <input type="tel" id="phone" name="phone" required placeholder="+977 98-XXXX-XXXX">
           </div>
           <div class="field">
-            <label for="email">Email</label>
+            <label for="{{ form.email.id_for_label }}">Email/label>
+            {{ form.email }}
             <input type="email" id="email" name="email" placeholder="you@example.com">
           </div>
           <div class="field">
-            <label for="interest">I'm interested in</label>
-            <select id="interest" name="interest">
-              <option>Bridal Set (Sirbandi / Naugedi)</option>
-              <option>Necklaces &amp; Chains</option>
-              <option>Rings</option>
-              <option>Bangles</option>
-              <option>Earrings</option>
-              <option>Custom Design / Old Gold Exchange</option>
-            </select>
+            <label for="{{ form.insterest.id_for_label }}"> I'm interested in</label>
+            {{ form.insterest }}
           </div>
           <div class="field">
-            <label for="message">Message</label>
+            <label for="{{ form.message.id_for_label }}">Message</label>
+            {{ form.message }}
             <textarea id="message" name="message" required placeholder="Tell us what you're looking for..."></textarea>
           </div>
           <button type="submit" class="btn" style="width:100%;">Send Enquiry ✦</button>

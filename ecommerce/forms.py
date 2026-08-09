@@ -1,8 +1,17 @@
 from django import forms
 class ContactForm(forms.Form):
     name= forms.CharField(max_length=100)
+    phone = forms.CharField(max_length=10)
     email = forms.EmailField()
-    subject = forms.CharField(max_length=200)
+    interest = forms.ChoiceField( choices=[
+        ("bridal","Bridal Set (Sirbandi / Naugedi)"),
+        ("necklaces", "Necklaces & Chains"),
+        ("rings", "Rings"),
+        ("bangle", "Bangles"),
+        ("earrings", "Earrings"),
+        ("custom", "Custom Design / Old Gold Exachange"),
+
+    ])
     message = forms.CharField(widget=forms.Textarea)
 
 class FeedbackForm(forms.Form):
