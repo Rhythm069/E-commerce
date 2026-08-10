@@ -21,3 +21,10 @@ class FeedbackForm(forms.Form):
     feedback = forms.CharField(widget=forms.Textarea)
     rating = forms.ChoiceField(choices =[('1','1 Stars'),('2', '2 Stars'),('3','3 Stars')])
     yes_no = forms.ChoiceField(choices =[('yes', 'Yes'), ('no', 'Np')], widget=forms.RadioSelect(attrs={'class': 'form-check-input'}))
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField( widget=forms.TextInput(attrs={"placeholder": "Enter your username"}))
+    password = forms.CharField(widget=forms.PasswordInput( attrs={"placeholder": "••••••••"}))
+    signin = forms.BooleanField(required=False)
+

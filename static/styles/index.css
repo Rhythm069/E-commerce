@@ -49,7 +49,7 @@ h1,h2,h3,h4{ font-family:'Playfair Display', serif; margin:0 0 .4em; color:var(-
 
 .wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
 
-/* ---------- Background texture: subtle diagonal shimmer ---------- */
+
 body::before{
   content:"";
   position:fixed; inset:0; pointer-events:none; z-index:0;
@@ -57,9 +57,7 @@ body::before{
   opacity:.7;
 }
 
-/* =========================================================
-   TICKER (90s marquee)
-   ========================================================= */
+
 .ticker{
   background:var(--ink);
   color:var(--gold-bright);
@@ -83,9 +81,7 @@ body::before{
   .ticker__track{ animation:none; padding-left:1em; }
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+
 .site-header{
   position:relative; z-index:15;
   background:linear-gradient(180deg, var(--maroon) 0%, var(--maroon-dark) 100%);
@@ -144,10 +140,7 @@ body::before{
 }
 .nav-toggle{ display:none; }
 
-/* =========================================================
-   ORNATE FRAME — signature element
-   Used around every product / feature image site-wide
-   ========================================================= */
+
 .frame{
   position:relative;
   padding:12px;
@@ -325,9 +318,6 @@ body::before{
 .quote::before{ content:"“"; font-family:'Cinzel Decorative',serif; font-size:3rem; color:var(--gold); display:block; }
 .quote cite{ display:block; margin-top:16px; font-family:'Space Mono', monospace; font-style:normal; font-size:.75rem; letter-spacing:.1em; color:var(--maroon); }
 
-/* =========================================================
-   FORMS (contact page)
-   ========================================================= */
 .form-panel{
   background:#fff; border:2px solid var(--gold); box-shadow:var(--shadow-hard);
   padding:34px;
@@ -400,9 +390,7 @@ body::before{
   border:1px dashed var(--gold); padding:4px 10px;
 }
 
-/* =========================================================
-   PAGE HEADER BANNER (about/collection/contact)
-   ========================================================= */
+
 .page-banner{
   position:relative;
   padding:64px 0 48px;
@@ -434,4 +422,50 @@ body::before{
   }
   .site-header{ position:relative; }
   .split{ gap:32px; }
+}
+
+.auth-wrap{
+  display:grid; grid-template-columns:1fr 1.05fr;
+  min-height:70vh;
+}
+@media (max-width:900px){ .auth-wrap{ grid-template-columns:1fr; } }
+ 
+.auth-visual{
+  position:relative;
+  background:
+    linear-gradient(160deg, rgba(36,4,9,.78), rgba(13,61,44,.55)),
+    url('https://images.unsplash.com/photo-1777286492764-456e3530e34c?fm=jpg&q=75&w=1400&auto=format&fit=crop') center/cover;
+  border-right:6px double var(--gold);
+  display:flex; align-items:flex-end;
+  padding:44px;
+  min-height:320px;
+}
+@media (max-width:900px){ .auth-visual{ border-right:none; border-bottom:6px double var(--gold); } }
+.auth-visual__note{
+  color:var(--cream);
+  max-width:34ch;
+}
+
+
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+
+.profile-link svg {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+.profile-link span {
+    display: none;
 }

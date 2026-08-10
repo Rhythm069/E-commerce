@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Profile_panal</title>
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+</head>
+<body>
+    <section class="profile-page">
+
+<div class="profile-container">
+
+   
+    <div class="profile-header">
+
+        <div class="profile-avatar">
+            {{ user.username|first|upper }}
+        </div>
+
+        <div class="profile-heading">
+            <span class="eyebrow">My Account</span>
+
+            <h1>Hello, {{ user.username }} 👋</h1>
+
+            <p>
+                Welcome back to Rhythm ko Dukan.
+                Manage your account and view your shopping activity.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Account Information -->
+    <div class="profile-card">
+
+        <div class="card-heading">
+            <h2>Account Information</h2>
+            <span>Personal Details</span>
+        </div>
+
+        <div class="profile-info">
+
+            <div class="info-item">
+                <span class="info-label">Username</span>
+                <strong>{{ user.username }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">Email</span>
+
+                {% if user.email %}
+                    <strong>{{ user.email }}</strong>
+                {% else %}
+                    <strong>Email not added</strong>
+                {% endif %}
+
+            </div>
+
+            <div class="info-item">
+                <span class="info-label">First Name</span>
+
+                {% if user.first_name %}
+                    <strong>{{ user.first_name }}</strong>
+                {% else %}
+                    <strong>Not added</strong>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="profile-actions">
+
+        <div class="action-card">
+            <span class="action-icon">🛍️</span>
+
+            <div>
+                <h3>My Orders</h3>
+                <p>View your previous and current orders.</p>
+            </div>
+
+            <a href="#" class="action-btn">
+                View
+            </a>
+        </div>
+
+
+        <div class="action-card">
+            <span class="action-icon">❤️</span>
+
+            <div>
+                <h3>Wishlist</h3>
+                <p>View the jewellery pieces you saved.</p>
+            </div>
+
+            <a href="#" class="action-btn">
+                View
+            </a>
+        </div>
+
+
+        <div class="action-card">
+            <span class="action-icon">🛒</span>
+
+            <div>
+                <h3>My Cart</h3>
+                <p>Continue shopping with items in your cart.</p>
+            </div>
+
+            <a href={% url 'ecommerce:cart' %} class="action-btn">
+                View
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- Logout -->
+    <div class="logout-section">
+
+        <form method="post" action={% url 'ecommerce:logout' %}>
+            {% csrf_token %}
+
+            <button type="submit" class="logout-btn">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</section>
+    
+</body>
+</html>

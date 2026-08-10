@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+     {% block extra_css %}
+    {% endblock %}
 </head>
 <body>
     <header class="site-header">
@@ -26,6 +28,19 @@
                 <li><a href={% url 'ecommerce:about' %}>About</a></li>
                 <li><a href={% url 'ecommerce:collection' %}>Collection</a></li>
                 <li><a href={% url 'ecommerce:contact' %}>Contact</a></li>
+                <li>
+                  <li>
+    <a href={% url 'ecommerce:profile' %} class="profile-link">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+        </svg>
+        
+    </a>
+</li>
+        <span>Profile</span>
+    </a>
+</li>
             </ul>
             
          </nav>

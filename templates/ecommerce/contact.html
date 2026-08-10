@@ -32,27 +32,27 @@
         <form action="#" method="post" onsubmit="return handleContactSubmit(event)">
           <div class="field">
             <label for="{{ form.name.id_for_label }}">Full Name</label>
-            {{ form.name }}
-            <input type="text" id="name" name="name" required placeholder="Your name">
+            {{ Form.name }}
+            
           </div>
           <div class="field">
            <label for="{{ form.phone.id_for_label }}">Phone</label>
-            {{ form.phone }}
-            <input type="tel" id="phone" name="phone" required placeholder="+977 98-XXXX-XXXX">
+            {{ Form.phone }}
+            
           </div>
           <div class="field">
             <label for="{{ form.email.id_for_label }}">Email/label>
-            {{ form.email }}
-            <input type="email" id="email" name="email" placeholder="you@example.com">
+            {{ Form.email }}
+            
           </div>
           <div class="field">
             <label for="{{ form.insterest.id_for_label }}"> I'm interested in</label>
-            {{ form.insterest }}
+            {{ Form.insterest }}
           </div>
           <div class="field">
             <label for="{{ form.message.id_for_label }}">Message</label>
-            {{ form.message }}
-            <textarea id="message" name="message" required placeholder="Tell us what you're looking for..."></textarea>
+            {{ Form.message }}
+            
           </div>
           <button type="submit" class="btn" style="width:100%;">Send Enquiry ✦</button>
           <p id="form-status" role="status" style="margin-top:14px; font-family:'Space Mono',monospace; font-size:.78rem; color:var(--maroon);"></p>
