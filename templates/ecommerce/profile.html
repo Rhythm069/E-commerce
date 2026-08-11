@@ -1,4 +1,8 @@
+{% extends "base.html" %}
+
 {% load static %}
+
+{% block content%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,134 +12,265 @@
     <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
 </head>
 <body>
-    <section class="profile-page">
+   <h1 style="font-size:clamp(1.7rem,4vw,2.6rem);">
+        My Account
+    </h1>
 
-<div class="profile-container">
-
-   
-    <div class="profile-header">
-
-        <div class="profile-avatar">
-            {{ user.username|first|upper }}
-        </div>
-
-        <div class="profile-heading">
-            <span class="eyebrow">My Account</span>
-
-            <h1>Hello, {{ user.username }} 👋</h1>
-
-            <p>
-                Welcome back to Rhythm ko Dukan.
-                Manage your account and view your shopping activity.
-            </p>
-        </div>
-
-    </div>
-
-
-    <!-- Account Information -->
-    <div class="profile-card">
-
-        <div class="card-heading">
-            <h2>Account Information</h2>
-            <span>Personal Details</span>
-        </div>
-
-        <div class="profile-info">
-
-            <div class="info-item">
-                <span class="info-label">Username</span>
-                <strong>{{ user.username }}</strong>
-            </div>
-
-            <div class="info-item">
-                <span class="info-label">Email</span>
-
-                {% if user.email %}
-                    <strong>{{ user.email }}</strong>
-                {% else %}
-                    <strong>Email not added</strong>
-                {% endif %}
-
-            </div>
-
-            <div class="info-item">
-                <span class="info-label">First Name</span>
-
-                {% if user.first_name %}
-                    <strong>{{ user.first_name }}</strong>
-                {% else %}
-                    <strong>Not added</strong>
-                {% endif %}
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="profile-actions">
-
-        <div class="action-card">
-            <span class="action-icon">🛍️</span>
-
-            <div>
-                <h3>My Orders</h3>
-                <p>View your previous and current orders.</p>
-            </div>
-
-            <a href="#" class="action-btn">
-                View
-            </a>
-        </div>
-
-
-        <div class="action-card">
-            <span class="action-icon">❤️</span>
-
-            <div>
-                <h3>Wishlist</h3>
-                <p>View the jewellery pieces you saved.</p>
-            </div>
-
-            <a href="#" class="action-btn">
-                View
-            </a>
-        </div>
-
-
-        <div class="action-card">
-            <span class="action-icon">🛒</span>
-
-            <div>
-                <h3>My Cart</h3>
-                <p>Continue shopping with items in your cart.</p>
-            </div>
-
-            <a href={% url 'ecommerce:cart' %} class="action-btn">
-                View
-            </a>
-        </div>
-
-    </div>
-
-
-    <!-- Logout -->
-    <div class="logout-section">
-
-        <form method="post" action={% url 'ecommerce:logout' %}>
-            {% csrf_token %}
-
-            <button type="submit" class="logout-btn">
-                Logout
-            </button>
-
-        </form>
-
-    </div>
+    <p class="breadcrumb">
+        HOME / ACCOUNT
+    </p>
+</div>
 
 </div>
 
+<div class="houndstooth-rule" aria-hidden="true"></div>
+
+<main> <section class="section"> <div class="wrap">
+
+        <!-- Member Card -->
+        <div class="member-card">
+
+            <!-- User Initial -->
+            <div class="member-card__avatar">
+                {{ user.username|first|upper }}
+            </div>
+
+            <div>
+                <h2 class="member-card__name">
+                    {{ user.get_full_name|default:user.username }}
+                </h2>
+
+                <span class="member-card__since">
+                    Member since {{ user.date_joined|date:"F Y" }}
+                </span>
+            </div>
+
+            <span class="member-card__tier">
+                ✦ Member
+            </span>
+
+        </div>
+
+
+        <!-- Profile Layout -->
+        <div class="profile-layout" style="margin-top:34px;">
+
+            <!-- Profile Navigation -->
+            <nav class="profile-nav" aria-label="Account navigation">
+
+                <a href="#account-details" class="is-active">
+                    ⌂ &nbsp;Account Details
+                </a>
+
+                <a href="#order-history">
+                    ✦ &nbsp;Order History
+                </a>
+
+                <a href="#saved-designs">
+                    ◆ &nbsp;Saved Designs
+                </a>
+
+                <a href="#addresses">
+                    ⌘ &nbsp;Addresses
+                </a>
+
+                <div class="logout-box">
+
+                    <form method="POST" action={% url 'ecommerce:logout' %}>
+                        {% csrf_token %}
+
+                        <button type="submit" class="btn-logout">
+                            ⏻ Log Out
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </nav>
+
+
+            <!-- Profile Content -->
+            <div>
+
+                <!-- Account Details -->
+                <div class="panel" id="account-details">
+
+                    <h2>Account Details</h2>
+
+                    <dl class="detail-grid">
+
+                        <div>
+                            <dt>Username</dt>
+                            <dd>{{ user.username }}</dd>
+                        </div>
+
+                        <div>
+                            <dt>Full Name</dt>
+
+                            <dd>
+                                {% if user.get_full_name %}
+                                    {{ user.get_full_name }}
+                                {% else %}
+                                    Not provided
+                                {% endif %}
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Email</dt>
+
+                            <dd>
+                                {{ user.email|default:"Not provided" }}
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Phone</dt>
+
+                            <dd>
+                                {% if user.profile.phone %}
+                                    {{ user.profile.phone }}
+                                {% else %}
+                                    Not provided
+                                {% endif %}
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Member Since</dt>
+
+                            <dd>
+                                {{ user.date_joined|date:"F d, Y" }}
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Last Login</dt>
+
+                            <dd>
+                                {% if user.last_login %}
+                                    {{ user.last_login|date:"F d, Y, g:i A" }}
+                                {% else %}
+                                    First login
+                                {% endif %}
+                            </dd>
+                        </div>
+
+                    </dl>
+
+                    <a href={% url 'ecommerce:contact' %}
+                       class="btn btn--dark"
+                       style="margin-top:10px;">
+                        Request Detail Update
+                    </a>
+
+                </div>
+
+
+                <!-- Order History -->
+                <div class="panel" id="order-history" style="margin-top:25px;">
+
+                    <h2>Order History</h2>
+
+                    <p>
+                        Your previous orders will appear here.
+                    </p>
+
+                    {% if orders %}
+
+                        <div class="order-list">
+
+                            {% for order in orders %}
+
+                                <div class="order-item">
+
+                                    <strong>
+                                        Order #{{ order.id }}
+                                    </strong>
+
+                                    <span>
+                                        {{ order.created_at|date:"F d, Y" }}
+                                    </span>
+
+                                    <span>
+                                        {{ order.status }}
+                                    </span>
+
+                                    <strong>
+                                        Rs. {{ order.total }}
+                                    </strong>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% else %}
+
+                        <p>
+                            You haven't placed any orders yet.
+                        </p>
+
+                        <a href={% url 'ecommerce:collection' %} class="btn btn--dark">
+                            Start Shopping
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Saved Designs -->
+                <div class="panel" id="saved-designs" style="margin-top:25px;">
+
+                    <h2>Saved Designs</h2>
+
+                    <p>
+                        Your wishlist and saved jewellery designs will appear here.
+                    </p>
+
+                    <a href={% url 'ecommerce:collection' %} class="btn btn--dark">
+                        Browse Jewellery
+                    </a>
+
+                </div>
+
+
+                <!-- Addresses -->
+                <div class="panel" id="addresses" style="margin-top:25px;">
+
+                    <h2>Addresses</h2>
+
+                    <p>
+                        Your saved delivery addresses will appear here.
+                    </p>
+
+                    {% if user.profile.address %}
+
+                        <p>
+                            {{ user.profile.address }}
+                        </p>
+
+                    {% else %}
+
+                        <p>
+                            No delivery address added yet.
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 </section>
-    
+
+</main>
 </body>
 </html>
+{% endblock %}

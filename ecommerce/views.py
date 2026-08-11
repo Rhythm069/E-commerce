@@ -3,12 +3,16 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.views.decorators.http import require_POST
+from rest_framework.decorators import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from django.shortcuts import render,redirect
 from .models import Product
 from .forms import ContactForm
 from .forms import FeedbackForm
 from .forms import LoginForm
+from .serializers import ProductSerializer
+
 
 def home(request):
     details={
@@ -60,7 +64,6 @@ def login(request):
                 }
             )
 
-    # This is for GET /login/
     return render(
         request,
         "ecommerce/login.html",
@@ -90,3 +93,24 @@ def cart(request):
 def logout(request):
     auth_logout(request)
     return redirect('ecommerce:home')
+
+
+class HelloAPIView(APIView):
+    def get(self, request):
+        return Response({"message":"Hello RHythm"},
+                        status=status.HTTP_200_OK)
+
+class ProductListAPIView(APIView):
+    def get(self ,request):
+        products=Product.objects.all()
+        serializer=ProductSerializer(
+            products, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        serializer=ProductSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
