@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Category(models.TextChoices):
-    RINGS="Rings","Rings"
-    NECKLACES="Necklaces","Necklaces"
-    BRACELETS="Bracelets","Bracelets"
-    EARRINGS="Earrings","Earrings"
+class Category(models.Model):
+    name= models.CharField(max_length=100)
+    slug= models.SlugField(unique=True,null=True,blank=True)
+    
 
 class Brand(models.Model):
     name = models.CharField(max_length=100)
@@ -22,7 +21,7 @@ class Product(models.Model):
     image=models.ImageField(upload_to="products/",blank=True,null=True)
     size=models.CharField(max_length=100,blank=True,null=True)
     material=models.CharField(max_length=100,blank=True,null=True)
-    category=models.CharField(max_length=20,choices=Category.choices,default=Category.RINGS)
+    category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
 
     def __str__(self):
         return self.name
