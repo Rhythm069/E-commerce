@@ -37,6 +37,8 @@ class Profile(models.Model):
     phone_number=models.CharField(max_length=15,blank=True)
     address=models.TextField(blank=True)
 
+
+
 class Cart(models.Model):
     customer=models.OneToOneField(Customer,on_delete=models.CASCADE,related_name="cart")
     created_at=models.DateTimeField(auto_now_add=True)

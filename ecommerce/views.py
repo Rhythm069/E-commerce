@@ -8,10 +8,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render,redirect
 from .models import Product,Category,Brand
-from .forms import ContactForm
-from .forms import FeedbackForm
-from .forms import LoginForm
+from .forms import ContactForm,LoginForm, FeedbackForm
 from .serializers import ProductSerializer,CategorySerializer,BrandSerializer
+from rest_framework import generics, mixins
+
 
 
 def home(request):
@@ -95,13 +95,35 @@ def logout(request):
     return redirect('ecommerce:home')
 
 
-class HelloAPIView(APIView):
-    def get(self, request):
-        return Response({"message":"Hello RHythm"},
-                        status=status.HTTP_200_OK)
+class HelloAPIView(mixins.ListModelMixin,mixins.CreateModelMixin, 
+                    mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
+    
+    queryset= Product.objects.all()
+    serializer_class = ProductSerializer
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def put(self,request,*args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def patch(self,request, *args, **kwargs):
+        return self.partial_update(request, *args ,**kwargs)
+
+    def patch(self,request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+
+
+    
 class ProductListAPIView(APIView):
-    def get(self ,request):
+    def get(self ,request):                                                
         products=Product.objects.all()
         serializer=ProductSerializer(
             products, many=True)
@@ -114,20 +136,33 @@ class ProductListAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class CategoryDetailAPIView(APIView):
-    def get(self, reuqest):
-        categorys= Category.objects.all()
-        serializer=CategorySerializer(categorys, many=True)
-        return Response(serializer.data,status=status.HTTP_200_OK)
+class CategoryDetailAPIView(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    generics.GenericAPIView
+):
 
-    def post(self,request):
-        serializer = CategorySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+    
 class BrandDetailsAPIView(APIView):
     def get(self, request):
         brands = Brand.object.all()

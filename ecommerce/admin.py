@@ -8,11 +8,4 @@ admin.site.register(Order)
 admin.site.register(Profile)
 admin.site.register(Cart)
 
-
-
-
-
-
-
-
 # Register your models here.
